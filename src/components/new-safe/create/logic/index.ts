@@ -201,7 +201,7 @@ export async function getSafeInfo(chainId: string, safeAddress: string): Promise
       "name": "SafeL2 1.3.0",
       "logoUri": "https://safe-transaction-assets.staging.5afe.dev/contracts/logos/0x3E5c63644E683549055b9Be8653de26E0B4CD36E.png"
     },
-    implementationVersionState: ImplementationVersionState.OUTDATED,
+    implementationVersionState: ImplementationVersionState.UP_TO_DATE,
     // "implementationVersionState": "UP_TO_DATE",
     "collectiblesTag": null,
     "txQueuedTag": null,
