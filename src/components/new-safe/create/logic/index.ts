@@ -1,7 +1,7 @@
 import type { SafeVersion } from '@safe-global/safe-core-sdk-types';
 import { type BrowserProvider, type Provider } from 'ethers';
 
-import { type SafeInfo, type ChainInfo } from '@safe-global/safe-gateway-typescript-sdk';
+import { type SafeInfo, type ChainInfo, ImplementationVersionState } from '@safe-global/safe-gateway-typescript-sdk';
 import {
   getReadOnlyFallbackHandlerContract,
   getReadOnlyGnosisSafeContract,
@@ -172,7 +172,50 @@ export const estimateSafeCreationGas = async (
   return gas;
 };
 export async function getSafeInfo(chainId: string, safeAddress: string): Promise<SafeInfo> {
-  return { "address": { "value": "0x1df00191a32184675baA3fc0416A57009C386ed9", }, "chainId": "8453", "nonce": 3, "threshold": 3, "owners": [{ "value": "0x467550C949E23f8ed65ED6bFeE1f206704c761f7" }, { "value": "0x02C6b9D156A56FffadD526ddE1ACd0c27aC13460" }, { "value": "0xfC03cAf0f5d95cb8c013f26006A0B7610220AFC7" }, { "value": "0x1a3A37fB9ABb7d3589DfB9Ca431CFE7f53A64954" }, { "value": "0xeBd07Dd6344E89C258340Bc070d2C80D33f0e365" }], "implementation": { "value": "0x3E5c63644E683549055b9Be8653de26E0B4CD36E", "name": "SafeL2 1.3.0", "logoUri": "https://safe-transaction-assets.staging.5afe.dev/contracts/logos/0x3E5c63644E683549055b9Be8653de26E0B4CD36E.png" }, "implementationVersionState": "UP_TO_DATE", "collectiblesTag": null, "txQueuedTag": null, "txHistoryTag": "1702451123", "messagesTag": null, "modules": null, "fallbackHandler": { "value": "0xf48f2B2d2a534e402487b3ee7C18c33Aec0Fe5e4", "name": "Safe: CompatibilityFallbackHandler 1.3.0", "logoUri": "https://safe-transaction-assets.staging.5afe.dev/contracts/logos/0xf48f2B2d2a534e402487b3ee7C18c33Aec0Fe5e4.png" }, "guard": null, "version": "1.3.0+L2" };
+  return {
+    "address": {
+      "value": "0x1df00191a32184675baA3fc0416A57009C386ed9"
+    },
+    "chainId": "8453",
+    "nonce": 3,
+    "threshold": 3,
+    "owners": [
+      {
+        "value": "0x467550C949E23f8ed65ED6bFeE1f206704c761f7"
+      },
+      {
+        "value": "0x02C6b9D156A56FffadD526ddE1ACd0c27aC13460"
+      },
+      {
+        "value": "0xfC03cAf0f5d95cb8c013f26006A0B7610220AFC7"
+      },
+      {
+        "value": "0x1a3A37fB9ABb7d3589DfB9Ca431CFE7f53A64954"
+      },
+      {
+        "value": "0xeBd07Dd6344E89C258340Bc070d2C80D33f0e365"
+      }
+    ],
+    "implementation": {
+      "value": "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+      "name": "SafeL2 1.3.0",
+      "logoUri": "https://safe-transaction-assets.staging.5afe.dev/contracts/logos/0x3E5c63644E683549055b9Be8653de26E0B4CD36E.png"
+    },
+    implementationVersionState: ImplementationVersionState.OUTDATED,
+    // "implementationVersionState": "UP_TO_DATE",
+    "collectiblesTag": null,
+    "txQueuedTag": null,
+    "txHistoryTag": "1702451123",
+    "messagesTag": null,
+    "modules": null,
+    "fallbackHandler": {
+      "value": "0xf48f2B2d2a534e402487b3ee7C18c33Aec0Fe5e4",
+      "name": "Safe: CompatibilityFallbackHandler 1.3.0",
+      "logoUri": "https://safe-transaction-assets.staging.5afe.dev/contracts/logos/0xf48f2B2d2a534e402487b3ee7C18c33Aec0Fe5e4.png"
+    },
+    "guard": null,
+    "version": "1.3.0+L2"
+  };
 }
 export const pollSafeInfo = async (chainId: string, safeAddress: string): Promise<SafeInfo> => {
   // exponential delay between attempts for around 4 min
